@@ -1,6 +1,9 @@
 // book.controller.ts
 import { Controller, Post, Body, Get } from '@nestjs/common';
 import { LoanService } from './loan.service'; // Import your service
+import { ApiTags } from '@nestjs/swagger'; // Import ApiTags decorator
+
+@ApiTags('loan') // Add this decorator to specify the Swagger tag
 
 @Controller('loan')
 export class LoanController {

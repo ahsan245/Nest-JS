@@ -1,5 +1,8 @@
 import { Controller, Post, Body, Get } from '@nestjs/common';
 import { LibraryService } from './library.service'; // Import your service
+import { ApiTags } from '@nestjs/swagger'; // Import ApiTags decorator
+
+@ApiTags('library') // Add this decorator to specify the Swagger tag
 
 @Controller('library')
 export class LibraryController {
