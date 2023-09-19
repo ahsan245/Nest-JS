@@ -1,20 +1,33 @@
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
-
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ProductsModule } from './products/products.module';
 import { LibraryModule } from './library/library.module';
+import { BookModule } from './book/book.module';
+import { LoanModule } from './loan/loan.module';
+import { PatronModule } from './patron/patron.module';
+import entities from './typeorm/index';
+
+
 
 @Module({
   imports: [
-    ProductsModule, LibraryModule,
-    MongooseModule.forRoot(
-      'mongodb://127.0.0.1:27017/nest-js',
-      { useNewUrlParser: true }, // Add this option
+    TypeOrmModule.forRoot({
+      "type": "mariadb",
+    "host": "localhost",
+    "port": 3306,
+    "username": "osticket",
+    "password": "admin", 
+    "database": "nest",
+    entities,
+    "synchronize": true,
+    "logging": true
+    }),
+    LibraryModule,
+    BookModule,
+    LoanModule,
+    PatronModule,
 
-
-    ),
     
   ],
   controllers: [AppController],

@@ -11,7 +11,11 @@ export class LoanService {
   ) {}
 
   async getAllLoans() {
-    return await this.loanRepository.find();
+    return await this.loanRepository
+      .createQueryBuilder('loan')
+      .leftJoinAndSelect('loan.library', 'library')
+      .leftJoinAndSelect('loan.book', 'book')
+      .getMany();
   }
 
   async createLoan(loanData) {

@@ -14,8 +14,12 @@ export class BookService {
     
 
   async getAllBooks() {
-    return await this.bookRepository.find();
-  }
+    return await this.bookRepository
+    .createQueryBuilder('book')
+    .leftJoinAndSelect('book.library', 'library')
+    .getMany();
+}
+
 
   async createBook(bookData) {
     const book = this.bookRepository.create(bookData);

@@ -11,8 +11,12 @@ export class PatronService {
   ) {}
 
   async getAllPatrons() {
-    return await this.patronRepository.find();
-  }
+   
+    return await this.patronRepository
+    .createQueryBuilder('patron')
+    .leftJoinAndSelect('patron.library', 'library')
+    .getMany();
+}
 
   async createPatron(patronData) {
     const patron = this.patronRepository.create(patronData);

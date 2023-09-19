@@ -1,0 +1,12 @@
+{
+    "type": "mariadb",
+    "host": "localhost",
+    "port": 3306,
+    "username": "osticket",
+    "password": "admin", 
+    "database": "nest",
+    "entities": ["dist/**/*.entity{.ts,.js}"],
+    "synchronize": true,
+    "logging": true
+  }
+  
