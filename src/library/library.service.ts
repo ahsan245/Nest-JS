@@ -2,6 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Library } from './library.model';
+import { Book } from '../book/book.model';
+import { Patron } from '../patron/patron.model';
+import { Loan } from '../loan/loan.model';
 
 @Injectable()
 export class LibraryService {

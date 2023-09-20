@@ -8,10 +8,6 @@ async function bootstrap() {
     .setTitle('Relational Project on NEST JS')
     .setDescription('This is a project on relational database using NEST JS')
     .setVersion('1.0')
-    .addTag('book') // Use the same tags you added to your controllers
-    .addTag('library')
-    .addTag('loan')
-    .addTag('patron')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);

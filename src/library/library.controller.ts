@@ -4,9 +4,13 @@ import { LibraryService } from './library.service';
 import { BookService } from '../book/book.service';
 import { PatronService } from '../patron/patron.service';
 import { LoanService } from '../loan/loan.service';
-import { LibraryBookPatronLoanDTO } from './LibraryBookPatronLoanDTO';
+import { LibraryBookPatronLoanDTO, PostRequest  } from './LibraryBookPatronLoanDTO';
+import { ApiTags, ApiResponse, ApiBody } from '@nestjs/swagger';
 
+
+@ApiTags('Create All From Here') // Add this decorator to specify the Swagger tag
 @Controller('library')
+
 export class LibraryController {
   constructor(
     private readonly libraryService: LibraryService,
@@ -16,7 +20,10 @@ export class LibraryController {
 
     ) {}
 
-  @Post('create-all')
+@Post('create-all')
+@ApiBody({ type: PostRequest } ) // Use the CreateBookDto here
+@ApiResponse({ status: 201, description: 'Created All' })
+
   async createAllEntities(@Body() data: LibraryBookPatronLoanDTO) {
     const libraryData = data.library;
     const bookData = data.book;
@@ -49,6 +56,8 @@ export class LibraryController {
 
 
   @Get()
+@ApiResponse({ status: 201, description: 'Fetching all the data from Libraries' })
+
   async getAllEntities() {
     const libraries = await this.libraryService.getAllLibraries();
     // const books = await this.bookService.getAllBooks();
