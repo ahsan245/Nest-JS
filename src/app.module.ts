@@ -24,9 +24,6 @@ import entities from './typeorm/index';
     "logging": true
     }),
     LibraryModule,
-    BookModule,
-    LoanModule,
-    PatronModule,
 
     
   ],

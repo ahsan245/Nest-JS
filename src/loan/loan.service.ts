@@ -14,7 +14,6 @@ export class LoanService {
     return await this.loanRepository
       .createQueryBuilder('loan')
       .leftJoinAndSelect('loan.library', 'library')
-      .leftJoinAndSelect('loan.book', 'book')
       .getMany();
   }
 

@@ -14,6 +14,4 @@ export class Loan {
   @ManyToOne(() => Library, (library) => library.loans)
   library: Library;
 
-  @ManyToOne(() => Book, (book) => book.loans)
-  book: Book;
 }
