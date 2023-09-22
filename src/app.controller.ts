@@ -7,7 +7,7 @@ export class AppController {
 
   @Get()
   @Header('Content-Type', 'text/html')
-  getHello(): {name: string} {
-    return {name: 'Badami'};
+  getHello() {
+    return this.appService.getHello();
   }
 }

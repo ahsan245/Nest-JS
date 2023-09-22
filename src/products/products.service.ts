@@ -57,6 +57,7 @@ export class ProductsService {
       updatedProduct.price = price;
     }
     updatedProduct.save();
+    
   }
 
   async deleteProduct(prodId: string) {

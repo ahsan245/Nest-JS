@@ -60,16 +60,6 @@ export class LibraryController {
 
   async getAllEntities() {
     const libraries = await this.libraryService.getAllLibraries();
-    // const books = await this.bookService.getAllBooks();
-    // const patrons = await this.patronService.getAllPatrons();
-    // const loans = await this.loanService.getAllLoans();
-
-    // You can customize the response structure as needed
-    return {
-      libraries,
-      // books,
-      // patrons,
-      // loans,
-    };
+    return libraries;
   }
 }

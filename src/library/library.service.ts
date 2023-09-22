@@ -14,7 +14,12 @@ export class LibraryService {
   ) {}
 
   async getAllLibraries() {
-    return await this.libraryRepository.find();
+    const data = await this.libraryRepository.createQueryBuilder("library")
+    .leftJoinAndSelect('library.books','books')
+    .leftJoinAndSelect('library.loans','loans')
+    .leftJoinAndSelect('library.patrons','patrons')
+    .getMany();
+    return data;
   }
 
   async createLibrary(libraryData) {

@@ -7,11 +7,13 @@ import { BookModule } from './book/book.module';
 import { LoanModule } from './loan/loan.module';
 import { PatronModule } from './patron/patron.module';
 import entities from './typeorm/index';
+import { Library } from './library/library.model';
 
 
 
 @Module({
   imports: [
+    TypeOrmModule.forFeature([Library]),
     TypeOrmModule.forRoot({
       "type": "mariadb",
     "host": "localhost",
