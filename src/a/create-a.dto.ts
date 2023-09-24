@@ -1,8 +1,7 @@
-// create-book.dto.ts
 import { IsString, IsNotEmpty, IsInt } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
-export class CreateBookDto {
+export class ADto {
   @ApiProperty()
   @IsString()
   @IsNotEmpty()

@@ -1,17 +1,17 @@
 // src/entities/loan.entity.ts
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { Library } from '../library/library.model';
-import { Book } from '../book/book.model';
+import { B } from '../b/b.model';
+import { A } from '../a/a.model';
 
 @Entity()
-export class Loan {
+export class C {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
   dueDate: Date;
 
-  @ManyToOne(() => Library, (library) => library.loans)
-  library: Library;
+  @ManyToOne(() => B, (b) => b.cs)
+  b: B;
 
 }

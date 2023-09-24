@@ -1,8 +1,8 @@
-import {Book} from '../book/book.model';
-import {Patron} from '../patron/patron.model';
-import {Loan} from '../loan/loan.model';
-import {Library} from '../library/library.model';
+import {A} from '../a/a.model';
+import {D} from '../d/d.model';
+import {C} from '../c/c.model';
+import {B} from '../b/b.model';
 
-const entities=[Library ,Book,Patron,Loan];
-export {Library ,Book,Patron,Loan};
+const entities=[B ,A,D,C];
+export {B ,A,D,C};
     export default entities;
