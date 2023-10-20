@@ -1,15 +1,16 @@
 // src/entities/patron.entity.ts
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { Library } from '../library/library.model';
+import { B } from '../b/b.model';
+// import {D} from '../d/d.module'
 
 @Entity()
-export class Patron {
+export class D {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
   name: string;
 
-  @ManyToOne(() => Library, (library) => library.patrons)
-  library: Library;
+  @ManyToOne(() => B, (b) => b.ds)
+  b: B;
 }
